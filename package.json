@@ -1,0 +1,27 @@
+{
+ "name": "bitstarter",
+ "version": "0.0.2",
+ "description":"un simple node.js",
+ "main":"web.js",
+ "scripts":{
+	"test": "echo \"error: no test specified\" && exit `"
+ },
+ "dependences": {
+  "express": "~3.3.4"
+   },
+  "engines":{
+   "node": "0.10.13",
+    "npm":"1.3.2"
+    },
+   "repository":{
+    "type": "git",
+    "url": "https:github.com/andres18281/bitstarter"
+    },
+    "keywords": [
+     "node",
+     "heroku"
+     ],
+     "author": "c andrews",
+     "license": "BSD",
+     "githead":"001"
+     }
