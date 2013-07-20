@@ -1,30 +1,15 @@
-var express = require('express');
 
-var fs = require("fs");
-
-var FILE = "index.html";
-
-var app = express.createServer(express.logger());
-
-
-
-var returnContent = function(file){
-
-    var file = file || FILE;
  
-   var content = new Buffer(fs.readFileSync(file));
+var express = require('express');
+var app = express();
+var fs = require('fs');
+app.use(express.logger());
 
-    return content.toString();
-}
-
-app.get('/', function(request, response) {
-
-  response.send(returnContent());
+app.get('/',function(reques,response){
+	var content = fs.readFileSync('index.html','utf8');
+	response.send(content);
 });
-
-
-var port = process.env.PORT || 8080;
-app.listen(port, function() {
-
- console.log("Listening on " + port);
-});
+var port = process.env.PORT || 5000;
+app.listen(port(port,function(){
+	console.log("Listening on"+ port);
+        });
