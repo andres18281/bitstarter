@@ -1,9 +1,30 @@
-var http = require('http');
-var fs = require('fs');
+var express = require('express');
 
-http.createServer(funtion(request,response){
-                  response.writeHead(200,{'Content-Type':'text/plain'});
-                   var content = fs.readFileSync('index.html','UTF8');
-                   response.end(content);
-                 }).listen(1337);
-                 console.log('Server running on 1337/');
+var fs = require("fs");
+
+var FILE = "index.html";
+
+var app = express.createServer(express.logger());
+
+
+
+var returnContent = function(file){
+
+    var file = file || FILE;
+ 
+   var content = new Buffer(fs.readFileSync(file));
+
+    return content.toString();
+}
+
+app.get('/', function(request, response) {
+
+  response.send(returnContent());
+});
+
+
+var port = process.env.PORT || 8080;
+app.listen(port, function() {
+
+ console.log("Listening on " + port);
+});
